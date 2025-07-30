@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Resultados para "{{ query }}"</title>
+</head>
+<body>
+  <h1>Resultados para “{{ query }}”</h1>
+  {% if productos %}
+    <ul>
+      {% for p in productos %}
+        <li>
+          {% if p.thumbnail %}
+            <img src="{{ p.thumbnail }}" alt="" width="50">
+          {% endif %}
+          <a href="{{ p.url }}" target="_blank">{{ p.title }}</a>
+          – {{ p.price }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No se encontraron productos.</p>
+  {% endif %}
+  <p><a href="/">← Nueva búsqueda</a></p>
+</body>
+</html>
